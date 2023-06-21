@@ -2,18 +2,6 @@
 <?php $this->load->view('user/includes/header'); ?>
 
 
-    <!-- Breadcrumb Start -->
-    <div class="container-fluid">
-        <div class="container">
-            <nav class="breadcrumb bg-transparent m-0 p-0">
-                <a class="breadcrumb-item" href="#">Home</a>
-                <span class="breadcrumb-item active">Contact</span>
-            </nav>
-        </div>
-    </div>
-    <!-- Breadcrumb End -->
-
-
     <!-- Contact Start -->
     <div class="container-fluid py-3">
         <div class="container">

@@ -15,8 +15,8 @@
         </div>
         <div class="row align-items-center py-2 px-lg-5">
             <div class="col-lg-4">
-                <a href="" class="navbar-brand d-none d-lg-block">
-                    <h1 class="m-0 display-5 text-uppercase"><span class="text-primary">News</span>Room</h1>
+                <a href="<?php echo base_url('index'); ?>" class="navbar-brand d-none d-lg-block">
+                    <h1 class="m-0 display-5 text-uppercase"><span class="text-primary">Baku</span>Agenda</h1>
                 </a>
             </div>
             <div class="col-lg-8 text-center text-lg-right">
@@ -40,7 +40,7 @@
                 <div class="navbar-nav mr-auto py-0">
                     <a href="<?php echo base_url('index'); ?>" class="nav-item nav-link active">Home</a>
                     <a href="<?php echo base_url('category'); ?>" class="nav-item nav-link">Categories</a>
-                    <a href="single.html" class="nav-item nav-link">Single News</a>
+                    <a href="<?php echo base_url('single'); ?>" class="nav-item nav-link">Single News</a>
                     <!-- <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Dropdown</a>
                         <div class="dropdown-menu rounded-0 m-0">
