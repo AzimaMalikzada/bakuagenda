@@ -31,8 +31,9 @@
                           <th>#</th>
                           <th>Title</th>
                           <th>Description</th>
-                          <th>Image</th>
+                          <th>Category</th>
                           <th>Date</th>
+                          <th>Image</th>
                           <th>Status</th>
                           <th>Actions</th>
                         </tr>
@@ -41,11 +42,15 @@
                             <td>1</td>
                           <td><i class="fab fa-react fa-lg text-info me-3"></i> <strong>React Project</strong></td>
                           <td>Barry Hunter</td>
+                          </td>
+                          <th>sport</th>
+
+                          <td>22.12.2022</td>
+
+                          
                           <td>
                             <img width="100px" src="https://www.timeoutdubai.com/cloud/timeoutdubai/2021/09/11/hfpqyV7B-IMG-Dubai-UAE-1200x800.jpg" alt="">
-                          </td>
-                          <td>22.12.2022</td>
-                          
+                         
                           <td><span class="badge bg-label-success me-1">Active</span></td>
                           <td>
                             <div class="dropdown">
