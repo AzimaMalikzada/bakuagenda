@@ -21,7 +21,7 @@
                                     <div class="card-body">
                                             <!-- ----------------------------------------------------------------------------------------------- -->
 
-                                            <form action="index.php" method="get">
+                                            <form action="<?php echo base_url('a_news_create_act'); ?>" method="post">
                                                  <label for="title"> Title</label>
                                                  <input type="text" name="title" id="title" class="form-control" placeholder="Enter title">
                                                  <br>
@@ -58,7 +58,7 @@
 
                                                  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 fLeft mt-2 me-2">
                                                  <label for="img"> Image </label>
-                                                 <input type="file" name="img" class="form-control" id="img">
+                                                 <input type="file" name="image" class="form-control" id="image">
                                                  </select>
                                                  </div>
 
