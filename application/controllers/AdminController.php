@@ -30,18 +30,46 @@ class AdminController extends CI_Controller{
         $status = $_POST['status'];
 
     if(!empty($title) && !empty($descr) && !empty($date) && !empty($category) && !empty($status )){ 
-        
-        $data = [
-        'n_title'       => $title,
-        'n_description' => $descr,
-        'n_date'        => $date,
-        'n_category'    => $category,
-        'n_status'      => $status,
-        'n_create_date' => date("Y-m-d H:i:s"),
-   ];
-    $this->db->insert('news', $data);
-    redirect(base_url('a_news_list'));
+                $config['upload_path']          = './uploads/news/';
+                $config['allowed_types']        = 'gif|jpg|png|jpeg|mp3|mp4';
+                $config['remove_spaces']        = true;
+                
+        $this->load->library('upload', $config);
+        $this->upload->initialize($config);
 
+
+        if($this->upload->do_upload('image')){
+        $upload_name = $this->upload->data('file_name');
+        $upload_ext = $this->upload->data('file_ext');
+
+        $data = [
+                'n_title'       => $title,
+                'n_description' => $descr,
+                'n_date'        => $date,
+                'n_category'    => $category,
+                'n_status'      => $status,
+                'n_file'        => $upload_name,
+                'n_file_ext'    => $upload_ext,
+                'n_create_date' => date("Y-m-d H:i:s"),
+           ];
+            $this->db->insert('news', $data);
+            redirect(base_url('a_news_list'));
+        
+
+        }else{
+            $data = [
+                'n_title'       => $title,
+                'n_description' => $descr,
+                'n_date'        => $date,
+                'n_category'    => $category,
+                'n_status'      => $status,
+              
+                'n_create_date' => date("Y-m-d H:i:s"),
+           ];
+            $this->db->insert('news', $data);
+            redirect(base_url('a_news_list'));
+        
+        }
 
     }else{
         redirect($_SERVER['HTTP_REFERER']);

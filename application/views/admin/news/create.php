@@ -21,7 +21,7 @@
                                     <div class="card-body">
                                             <!-- ----------------------------------------------------------------------------------------------- -->
 
-                                            <form action="<?php echo base_url('a_news_create_act'); ?>" method="post">
+                                            <form action="<?php echo base_url('a_news_create_act'); ?>" method="post" enctype="multipart/form-data">
                                                  <label for="title"> Title</label>
                                                  <input type="text" name="title" id="title" class="form-control" placeholder="Enter title">
                                                  <br>
