@@ -39,36 +39,41 @@
                         </tr>
                       </thead>
                       <tbody>
-                            <td>1</td>
-                          <td><i class="fab fa-react fa-lg text-info me-3"></i> <strong>React Project</strong></td>
-                          <td>Barry Hunter</td>
+                      
+                      <?php foreach ($get_all as $items) { ?>
+
+                        <tr>
+                          <td><?php echo $items->n_id; ?></td>
+                          <td><i class="fab fa-react fa-lg text-info me-3"></i> <strong><?php echo $items->n_title; ?></strong></td>
+                          <td><?php echo $items->n_description; ?></td>
+                          <td><?php echo $items->n_category; ?></td>
+                          <td><?php echo date("d-m-Y H:i", strtotime($items->n_date)) ; ?></td>
+                          <td>
+                            <img width="100px" src="<?php echo base_url('uploads/news/'.$items->n_file); ?>" alt="">
+                         </td>
+                          <td>
+                            <?php if($items->n_status == "Active"){ ?>
+                              <span class="badge bg-label-success me-1"><?php echo $items->n_status; ?></span>
+                            <?php }else if($items->n_status == "Deactive"){ ?>
+                              <span class="badge bg-label-danger me-1"><?php echo $items->n_status; ?></span>
+                            <?php }else{ ?>
+                            <span class="badge bg-label-info me-1">UPSSS</span>
+                            <?php } ?>
                           </td>
-                          <th>sport</th>
-
-                          <td>22.12.2022</td>
-
-                          
                           <td>
-                            <img width="100px" src="https://www.timeoutdubai.com/cloud/timeoutdubai/2021/09/11/hfpqyV7B-IMG-Dubai-UAE-1200x800.jpg" alt="">
-                         
-                          <td><span class="badge bg-label-success me-1">Active</span></td>
-                          <td>
-                            <div class="dropdown">
                              <a href="">
                              <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="dropdown"> 
                                 <i class="bx bx-edit-alt me-1"></i> Edit
                               </button>
                              </a>
-
-
                               <a href="">
                               <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="dropdown"> 
                               <i class="bx bx-trash me-1"></i> Delete
                               </button>
                               </a>
-                            </div>
                           </td>
                         </tr>
+                        <?php } ?>
                         
                       </tbody>
                     </table>
