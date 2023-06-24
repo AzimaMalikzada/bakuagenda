@@ -54,6 +54,29 @@
     <script src="<?php echo base_url('public/admin/'); ?>assets/js/config.js"></script>
   </head>
 
+  <style>
+    /* width */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background color: rgba(105, 108, 255, 0.16) !important;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(105, 108, 255);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background color: rgba(105, 108, 255, 0.5) !important;
+}
+  </style>
+
   <body>
     
     <!-- Layout wrapper -->

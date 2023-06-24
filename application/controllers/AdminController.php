@@ -28,7 +28,7 @@ class AdminController extends CI_Controller{
         $category= $_POST['category'];
         $status = $_POST['status'];
 
-    if(!empty($title) && !empty($descr) && !empty($date) && !empty($category) && !empty($status )){ 
+        if(!empty($title) && !empty($descr) && !empty($date) && !empty($category) && !empty($status )){ 
                 $config['upload_path']          = './uploads/news/';
                 $config['allowed_types']        = 'gif|jpg|png|jpeg|mp3|mp4';
                 $config['remove_spaces']        = true;
@@ -70,11 +70,30 @@ class AdminController extends CI_Controller{
         
         }
 
-    }else{
+       }else{
         redirect($_SERVER['HTTP_REFERER']);
 
-    }
+         }
+
+    } 
+
+    public function delete_news($id){
+
+        $this->db->where('n_id', $id)->delete('news');
+        redirect(base_url('a_news_list'));
+
+    }      
 
 
+    public function update_news($id){
+        $data['single_news'] = $this->db->where('n_id',$id)->get('news')->row();
+        $this->load->view('admin/news/edit',$data);
+         
 }
+    
+    public function update_newsAct($id){
+         
+        echo $id;    
+     }
+
 }
