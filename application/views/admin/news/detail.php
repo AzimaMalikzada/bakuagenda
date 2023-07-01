@@ -33,9 +33,9 @@
 
 
                                      <table class="table table-hover">
-    <tbody>
+
       <tr>
-        <td style="width:100px">Title</td>
+        <td style="">Title</td>
         <td><?php echo $single_news['n_title']; ?></td>
       </tr>
       <tr>
@@ -48,7 +48,7 @@
       </tr>
       <tr>
         <td>Category</td>
-        <td><?php echo $single_news['n_category']; ?></td>
+        <td><?php echo $single_news['c_name']; ?></td>
       </tr>
       <tr>
         <td>Status</td>

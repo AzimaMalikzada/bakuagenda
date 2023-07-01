@@ -2,11 +2,6 @@
 <?php $this->load->view('admin/includes/leftMenu'); ?>
 <?php $this->load->view('admin/includes/navbar'); ?>
 
-         
-
-
-
-          <!-- Content wrapper -->
         <div class="content-wrapper">
             <div class="container-xxl flex-grow-1 container-p-y">
                 <div class="row">
@@ -17,7 +12,7 @@
                                     <!-- Bordered Table -->
               <div class="card">
                 
-                <h5 class="card-header">Bordered Table
+                <h5 class="card-header"> News list
                     <a href="<?php echo base_url('a_news_create'); ?>">
                     <button type="button" class="btn btn-success" style="float: right;">Create</button>
                     </a>
@@ -30,7 +25,6 @@
                         <tr>
                           <th>#</th>
                           <th>Title</th>
-                          <th>Description</th>
                           <th>Category</th>
                           <th>Date</th>
                           <th>Image</th>
@@ -45,8 +39,7 @@
                         <tr>
                           <td><?php echo $sira; ?></td>
                           <td><i class="fab fa-react fa-lg text-info me-3"></i> <strong><?php echo $items->n_title; ?></strong></td>
-                          <td><?php echo $items->n_description; ?></td>
-                          <td><?php echo $items->n_category; ?></td>
+                          <td><?php echo $items->c_name; ?></td>
                           <td><?php echo date("d-m-Y H:i", strtotime($items->n_date)) ; ?></td>
                           
                           <td>
@@ -55,7 +48,7 @@
                                    <source src="<?php echo base_url('uploads/news/') . $items->n_file; ?>" type="audio/mpeg">
                                    </audio>
                                    <?php } else { ?>
-                                   <img width="210" src="<?php echo base_url('uploads/news/') . $items->n_file; ?>" alt="">
+                                   <img width="100" height="100" style="object-fit:cover;" src="<?php echo base_url('uploads/news/') . $items->n_file; ?>" alt="">
                           <?php } ?>
                          </td>
                           <td>

@@ -1,11 +1,13 @@
 <?php 
+
 if(!isset($_SESSION['admin_id']) || !isset($_SESSION['admin_username'])){
   $this->session->set_flashdata('err', "İlk öncə giriş edin.");
 redirect(base_url("a_login"));
 }
+
+ 
+
 ?>
-
-
 
 
 <!DOCTYPE html>

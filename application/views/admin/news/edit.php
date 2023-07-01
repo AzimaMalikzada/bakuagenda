@@ -8,7 +8,10 @@
     }
 </style>
 
-
+        <!-- <?php print_r('<pre>');
+              print_r($category);
+              die();
+        ?> -->
 
           <!-- Content wrapper -->
         <div class="content-wrapper">
@@ -38,13 +41,10 @@
                                                  <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 fLeft mt-2 me-2">
                                                  <label for="category"> Category</label>
                                                  <select name="category" id="category" class="form-control" >
-                                                    <option <?php if($single_news->n_category == ""){ echo "SELECTED"; } ?> value="">-SELECT-</option>
-                                                    <option <?php if($single_news->n_category == "sport"){ echo "SELECTED"; } ?> value="sport">Sport</option>
-                                                    <option <?php if($single_news->n_category == "finance"){ echo "SELECTED"; } ?> value="finance">Finance</option>
-                                                    <option <?php if($single_news->n_category == "education"){ echo "SELECTED"; } ?> value="education">Education</option>
-                                                    <option <?php if($single_news->n_category == "technology"){ echo "SELECTED"; } ?> value="technology">Technology</option>
-                                                    <option <?php if($single_news->n_category == "business"){ echo "SELECTED"; } ?> value="business">Business</option>
-                                            
+                                                    <option value="">-SELECT-</option>
+                                                    <?php foreach ($category as $item){ ?>
+                                                        <option <?php if($single_news->n_category == $item['c_id']){ echo "SELECTED"; } ?> value="<?php echo $item['c_id']; ?>"><?php echo $item['c_name']; ?></option>
+                                                    <?php }?>
 
                                                  </select>
                                                  </div>

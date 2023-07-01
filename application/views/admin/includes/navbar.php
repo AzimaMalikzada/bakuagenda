@@ -1,3 +1,5 @@
+<?php $admin = $this->db->select('a_id, a_name, a_username, a_email, a_status, a_img')->where('a_id', $_SESSION['admin_id'])->get('admin')->row_array();?>
+
 <nav
             class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme"
             id="layout-navbar"
@@ -41,7 +43,14 @@
                 <li class="nav-item navbar-dropdown dropdown-user dropdown">
                   <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
                     <div class="avatar avatar-online">
-                      <img src="<?php echo base_url('public/admin/'); ?>assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
+
+                    <?php if($admin['a_img']){ ?>
+                      <img src="<?php echo base_url('uploads/admin/'.$admin['a_img']); ?>" alt class="w-px-40 h-auto rounded-circle" />
+                                
+                    <?php }else{ ?>
+                      <img src="https://cdn1.iconfinder.com/data/icons/marketing-19/100/Profile-512.png" alt class="w-px-40 h-auto rounded-circle" />
+                    <?php } ?>
+
                     </div>
                   </a>
                   <ul class="dropdown-menu dropdown-menu-end">
@@ -50,12 +59,12 @@
                         <div class="d-flex">
                           <div class="flex-shrink-0 me-3">
                             <div class="avatar avatar-online">
-                              <img src="<?php echo base_url('public/admin/'); ?>assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
+                              <img src="<?php echo base_url('uploads/admin/'.$admin['a_img']); ?>" alt class="w-px-40 h-auto rounded-circle" />
                             </div>
                           </div>
                           <div class="flex-grow-1">
-                            <span class="fw-semibold d-block">John Doe</span>
-                            <small class="text-muted">Admin</small>
+                            <span class="fw-semibold d-block"><?php echo $admin['a_name']; ?></span>
+                            <small class="text-muted"><?php echo $admin['a_username']; ?></small>
                           </div>
                         </div>
                       </a>
