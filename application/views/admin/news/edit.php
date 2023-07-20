@@ -8,10 +8,6 @@
     }
 </style>
 
-        <!-- <?php print_r('<pre>');
-              print_r($category);
-              die();
-        ?> -->
 
           <!-- Content wrapper -->
         <div class="content-wrapper">
@@ -26,12 +22,32 @@
                                                  <h1>Edit</h1>
                                             <form action="<?php echo base_url('a_news_update_act/'.$single_news->n_id); ?>" method="post" enctype="multipart/form-data">
 
-                                                 <label for="title"> Title</label>
-                                                 <input type="text" name="title" id="title" class="form-control" placeholder="Enter title" value="<?php echo $single_news->n_title; ?>">
+                                                 <!-- ----------------------------------------az------------------------------------ -->
+                                                 <label for="title_az">Title az</label>
+                                                 <input type="text" name="title_az" id="title_az" class="form-control" placeholder="Enter title" value='<?php echo $single_news->n_title_az; ?>'>
                                                  <br>
-                                                 <label for="desc"> Description</label>
-                                                 <textarea name="description" id="desc" cols="30" rows="10" class="form-control" placeholder="Enter description"><?php echo $single_news->n_description; ?></textarea>
+                                                 <label for="desc">Description az</label>
+                                                 <textarea name="description" id="desc" cols="30" rows="10" class="form-control" placeholder="Enter description"><?php echo $single_news->n_description_az; ?></textarea>
                                                  <br>
+
+                                                 <!-- ----------------------------------------en------------------------------------ -->
+                                                 <label for="title_en">Title en</label>
+                                                 <input type="text" name="title_en" id="title_en" class="form-control" placeholder="Enter title" value='<?php echo $single_news->n_title_en; ?>'>
+                                                 <br>
+                                                 <label for="desc">Description en</label>
+                                                 <textarea name="description" id="desc" cols="30" rows="10" class="form-control" placeholder="Enter description"><?php echo $single_news->n_description_en; ?></textarea>
+                                                 <br>
+                                                 
+                                                 <!-- ----------------------------------------ru------------------------------------ -->
+                                                 <label for="title_ru">Title ru</label>
+                                                 <input type="text" name="title_ru" id="title_ru" class="form-control" placeholder="Enter title" value='<?php echo $single_news->n_title_ru; ?>'>
+                                                 <br>
+                                                 <label for="desc">Description ru</label>
+                                                 <textarea name="description" id="desc" cols="30" rows="10" class="form-control" placeholder="Enter description"><?php echo $single_news->n_description_ru; ?></textarea>
+                                                 <br>
+
+
+
 
                                                  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-2 fLeft mt-2 me-2">
                                                  <label for="date"> Date</label>
@@ -43,7 +59,7 @@
                                                  <select name="category" id="category" class="form-control" >
                                                     <option value="">-SELECT-</option>
                                                     <?php foreach ($category as $item){ ?>
-                                                        <option <?php if($single_news->n_category == $item['c_id']){ echo "SELECTED"; } ?> value="<?php echo $item['c_id']; ?>"><?php echo $item['c_name']; ?></option>
+                                                        <option <?php if($single_news->n_category == $item['c_id']){ echo "SELECTED"; } ?> value="<?php echo $item['c_id']; ?>"><?php echo $item['c_name_az']; ?></option>
                                                     <?php }?>
 
                                                  </select>

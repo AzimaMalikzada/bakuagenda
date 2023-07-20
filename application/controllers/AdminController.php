@@ -22,6 +22,11 @@ class AdminController extends CI_Controller{
             'a_password' => md5($password), 
             'a_status'   => "Active",
            ];
+
+           $data = $this->security->xss_clean($data);
+        // print_r("<pre>");
+        // print_r($data);
+        //  die();
                 
            $check_admin = $this->db->where($data)->get('admin')->row_array();
            
@@ -93,13 +98,23 @@ class AdminController extends CI_Controller{
     }
      
     public function news_create_act(){
-        $title = $_POST['title'];
-        $descr = $_POST['description'];
+
+        $title_az = $_POST['title_az'];
+        $descr_az = $_POST['description_az'];
+
+        $title_en = $_POST['title_en'];
+        $descr_en = $_POST['description_en'];
+
+
+        $title_ru = $_POST['title_ru'];
+        $descr_ru = $_POST['description_ru'];
+
+
         $date = $_POST['date'];
         $category= $_POST['category'];
         $status = $_POST['status'];
 
-        if(!empty($title) && !empty($descr) && !empty($date) && !empty($category) && !empty($status )){ 
+        if(!empty($title_az) && !empty($descr_az) && !empty($date) && !empty($category) && !empty($status )){ 
                 $config['upload_path']          = './uploads/news/';
                 $config['allowed_types']        = 'gif|jpg|png|jpeg|mp3|mp4';
                 $config['remove_spaces']        = true;
@@ -113,32 +128,51 @@ class AdminController extends CI_Controller{
         $upload_ext = $this->upload->data('file_ext');
 
         $data = [
-                'n_title'       => $title,
-                'n_description' => $descr,
+                'n_title_az'       => $title_az,
+                'n_title_en'       => $title_en,
+                'n_title_ru'       => $title_ru,
+
+
+                'n_description_az' => $descr_az,
+                'n_description_en' => $descr_en,
+                'n_description_ru' => $descr_ru,
+
+
                 'n_date'        => $date,
                 'n_category'    => $category,
                 'n_status'      => $status,
                 'n_file'        => $upload_name,
                 'n_file_ext'    => $upload_ext,
+                // 'n_status'      => "Deactive",
                 'n_creator_id'  => $_SESSION['admin_id'],
                 'n_create_date' => date("Y-m-d H:i:s"),
             ];
+
+           $data = $this->security->xss_clean($data);
+
             $this->db->insert('news', $data);
             redirect(base_url('a_news_list'));
         
 
         }else{
             $data = [
-                'n_title'       => $title,
-                'n_description' => $descr,
+                'n_title_az'       => $title_az,
+                'n_title_en'       => $title_en,
+                'n_title_ru'       => $title_ru,
+
+
+                'n_description_az' => $descr_az,
+                'n_description_en' => $descr_en,
+                'n_description_ru' => $descr_ru,
                 'n_date'        => $date,
                 'n_category'    => $category,
                 'n_status'      => $status,
-              
                 'n_creator_id'  => $_SESSION['admin_id'],
                 'n_create_date' => date("Y-m-d H:i:s"),
 
            ];
+           $data = $this->security->xss_clean($data);
+
             $this->db->insert('news', $data);
             redirect(base_url('a_news_list'));
         
@@ -152,6 +186,8 @@ class AdminController extends CI_Controller{
     } 
 
     public function delete_news($id){
+        $id = $this->security->xss_clean($id);
+
 
         $this->db->where('n_id', $id)->delete('news');
         redirect(base_url('a_news_list'));
@@ -160,12 +196,14 @@ class AdminController extends CI_Controller{
 
 
     public function update_news($id){
-
-
+        $id = $this->security->xss_clean($id);
 
         $data['category'] = $this->db->get('category')->result_array();
+
         $data['single_news'] = $this->db->where('n_id',$id)->get('news')->row();
-        
+        // print_r('<pre>');
+        // print_r ($data['category']);
+        // die();
         if($data['single_news']){
             $this->load->view('admin/news/edit',$data);
 
@@ -176,15 +214,23 @@ class AdminController extends CI_Controller{
 }
     
     public function update_newsAct($id){
-        
-         
-        $title    = $_POST['title'];
-        $descr    = $_POST['description'];
+        $id = $this->security->xss_clean($id);
+
+        $title_az = $_POST['title_az'];
+        $descr_az = $_POST['description_az'];
+
+        $title_en = $_POST['title_en'];
+        $descr_en = $_POST['description_en'];
+
+
+        $title_ru = $_POST['title_ru'];
+        $descr_ru = $_POST['description_ru'];
+
         $date     = $_POST['date'];
         $category = $_POST['category'];
         $status   = $_POST['status'];
 
-        if(!empty($title) && !empty($descr) && !empty($date) && !empty($category) && !empty($status )){ 
+        if(!empty($title_az) && !empty($descr_az) && !empty($date) && !empty($category) && !empty($status )){ 
                      
             $config['upload_path']          = './uploads/news/';
             $config['allowed_types']        = 'gif|jpg|png|jpeg|mp3|mp4';
@@ -200,8 +246,17 @@ class AdminController extends CI_Controller{
 
 
             $data = [
-                'n_title'       => $title,
-                'n_description' => $descr,
+                
+                'n_title_az'       => $title_az,
+                'n_title_en'       => $title_en,
+                'n_title_ru'       => $title_ru,
+
+
+                'n_description_az' => $descr_az,
+                'n_description_en' => $descr_en,
+                'n_description_ru' => $descr_ru,
+
+
                 'n_date'        => $date,
                 'n_category'    => $category,
                 'n_status'      => $status,
@@ -211,6 +266,8 @@ class AdminController extends CI_Controller{
                 'n_update_date' => date("Y-m-d H:i:s"),
 
            ];
+        $data = $this->security->xss_clean($data);
+
 
                  $this->db->where('n_id', $id)->update('news', $data);
 
@@ -219,8 +276,16 @@ class AdminController extends CI_Controller{
 
         }else{
             $data = [
-                'n_title'       => $title,
-                'n_description' => $descr,
+                'n_title_az'       => $title_az,
+                'n_title_en'       => $title_en,
+                'n_title_ru'       => $title_ru,
+
+
+                'n_description_az' => $descr_az,
+                'n_description_en' => $descr_en,
+                'n_description_ru' => $descr_ru,
+
+
                 'n_date'        => $date,
                 'n_category'    => $category,
                 'n_status'      => $status,
@@ -229,7 +294,8 @@ class AdminController extends CI_Controller{
 
            ];
 
-
+        $data = $this->security->xss_clean($data);
+         
            $this->db->where('n_id', $id)->update('news', $data);
 
             redirect(base_url('a_news_list'));
@@ -245,6 +311,9 @@ class AdminController extends CI_Controller{
      }
 
     public function view_news($id){
+
+        $id = $this->security->xss_clean($id);
+
         $data['single_news'] = $this->db
         ->where('n_id',$id)
         ->join('category','category.c_id = news.n_category' , 'left')
