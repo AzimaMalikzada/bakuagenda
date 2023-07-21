@@ -214,11 +214,12 @@ class AdminController extends CI_Controller{
 }
     
     public function update_newsAct($id){
+        
         $id = $this->security->xss_clean($id);
 
         $title_az = $_POST['title_az'];
         $descr_az = $_POST['description_az'];
-
+       
         $title_en = $_POST['title_en'];
         $descr_en = $_POST['description_en'];
 
@@ -230,8 +231,8 @@ class AdminController extends CI_Controller{
         $category = $_POST['category'];
         $status   = $_POST['status'];
 
-        if(!empty($title_az) && !empty($descr_az) && !empty($date) && !empty($category) && !empty($status )){ 
-                     
+        if(!empty($title_az) && !empty($descr_az) && !empty($date) && !empty($category) && !empty($status)){ 
+            
             $config['upload_path']          = './uploads/news/';
             $config['allowed_types']        = 'gif|jpg|png|jpeg|mp3|mp4';
             $config['remove_spaces']        = true;
@@ -240,75 +241,77 @@ class AdminController extends CI_Controller{
             $this->upload->initialize($config);
 
 
+
             if($this->upload->do_upload('image')){
-            $upload_name = $this->upload->data('file_name');
-            $upload_ext = $this->upload->data('file_ext');
+                $upload_name = $this->upload->data('file_name');
+                $upload_ext = $this->upload->data('file_ext');
 
 
-            $data = [
+                $data = [
+                    
+                    'n_title_az'       => $title_az,
+                    'n_title_en'       => $title_en,
+                    'n_title_ru'       => $title_ru,
+
+
+                    'n_description_az' => $descr_az,
+                    'n_description_en' => $descr_en,
+                    'n_description_ru' => $descr_ru,
+
+
+                    'n_date'        => $date,
+                    'n_category'    => $category,
+                    'n_status'      => $status,
+                    'n_file'        => $upload_name,
+                    'n_file_ext'    => $upload_ext,
+                    'n_updater_id'  => $_SESSION['admin_id'],
+                    'n_update_date' => date("Y-m-d H:i:s"),
+
+                ];
                 
-                'n_title_az'       => $title_az,
-                'n_title_en'       => $title_en,
-                'n_title_ru'       => $title_ru,
-
-
-                'n_description_az' => $descr_az,
-                'n_description_en' => $descr_en,
-                'n_description_ru' => $descr_ru,
-
-
-                'n_date'        => $date,
-                'n_category'    => $category,
-                'n_status'      => $status,
-                'n_file'        => $upload_name,
-                'n_file_ext'    => $upload_ext,
-                'n_updater_id'  => $_SESSION['admin_id'],
-                'n_update_date' => date("Y-m-d H:i:s"),
-
-           ];
-        $data = $this->security->xss_clean($data);
-
-
-                 $this->db->where('n_id', $id)->update('news', $data);
-
-                 redirect(base_url('a_news_list'));
+                $data = $this->security->xss_clean($data);
+               
+                $this->db->where('n_id', $id)->update('news', $data);
+                redirect(base_url('a_news_list'));
         
-
-        }else{
-            $data = [
-                'n_title_az'       => $title_az,
-                'n_title_en'       => $title_en,
-                'n_title_ru'       => $title_ru,
-
-
-                'n_description_az' => $descr_az,
-                'n_description_en' => $descr_en,
-                'n_description_ru' => $descr_ru,
-
-
-                'n_date'        => $date,
-                'n_category'    => $category,
-                'n_status'      => $status,
-                'n_updater_id'  => $_SESSION['admin_id'], 
-                'n_update_date' => date("Y-m-d H:i:s"),
-
-           ];
-
-        $data = $this->security->xss_clean($data);
-         
-           $this->db->where('n_id', $id)->update('news', $data);
-
-            redirect(base_url('a_news_list'));
-        
-        }
 
             }else{
-               redirect($_SERVER['HTTP_REFERER']);
+           
+                $data = [
+                    
+                    'n_title_az'       => $title_az,
+                    'n_title_en'       => $title_en,
+                    'n_title_ru'       => $title_ru,
 
+
+                    'n_description_az' => $descr_az,
+                    'n_description_en' => $descr_en,
+                    'n_description_ru' => $descr_ru,
+
+
+                    'n_date'        => $date,
+                    'n_category'    => $category,
+                    'n_status'      => $status,
+                    
+                    'n_updater_id'  => $_SESSION['admin_id'],
+                    'n_update_date' => date("Y-m-d H:i:s"),
+
+                ];
+                
+                $data = $this->security->xss_clean($data);
+               
+                $this->db->where('n_id', $id)->update('news', $data);
+                redirect(base_url('a_news_list'));
+        
             }
 
+        }else{
+            $this->session->set_flashdata('err', 'Bosluq buraxmayin!');
+            redirect($_SERVER['HTTP_REFERER']);
+        }
 
-     }
+
+    }
 
     public function view_news($id){
 

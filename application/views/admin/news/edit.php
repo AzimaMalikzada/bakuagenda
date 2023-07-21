@@ -18,6 +18,7 @@
                             <div class="d-flex align-items-end row">
                                 <div class="col-sm-12">
                                     <div class="card-body">
+                                        <?php echo $this->session->flashdata('err') ?>
                                             <!-- ----------------------------------------------------------------------------------------------- -->
                                                  <h1>Edit</h1>
                                             <form action="<?php echo base_url('a_news_update_act/'.$single_news->n_id); ?>" method="post" enctype="multipart/form-data">
@@ -27,7 +28,7 @@
                                                  <input type="text" name="title_az" id="title_az" class="form-control" placeholder="Enter title" value='<?php echo $single_news->n_title_az; ?>'>
                                                  <br>
                                                  <label for="desc">Description az</label>
-                                                 <textarea name="description" id="desc" cols="30" rows="10" class="form-control" placeholder="Enter description"><?php echo $single_news->n_description_az; ?></textarea>
+                                                 <textarea name="description_az" id="desc" cols="30" rows="10" class="form-control" placeholder="Enter description"><?php echo $single_news->n_description_az; ?></textarea>
                                                  <br>
 
                                                  <!-- ----------------------------------------en------------------------------------ -->
@@ -35,7 +36,7 @@
                                                  <input type="text" name="title_en" id="title_en" class="form-control" placeholder="Enter title" value='<?php echo $single_news->n_title_en; ?>'>
                                                  <br>
                                                  <label for="desc">Description en</label>
-                                                 <textarea name="description" id="desc" cols="30" rows="10" class="form-control" placeholder="Enter description"><?php echo $single_news->n_description_en; ?></textarea>
+                                                 <textarea name="description_en" id="desc" cols="30" rows="10" class="form-control" placeholder="Enter description"><?php echo $single_news->n_description_en; ?></textarea>
                                                  <br>
                                                  
                                                  <!-- ----------------------------------------ru------------------------------------ -->
@@ -43,7 +44,7 @@
                                                  <input type="text" name="title_ru" id="title_ru" class="form-control" placeholder="Enter title" value='<?php echo $single_news->n_title_ru; ?>'>
                                                  <br>
                                                  <label for="desc">Description ru</label>
-                                                 <textarea name="description" id="desc" cols="30" rows="10" class="form-control" placeholder="Enter description"><?php echo $single_news->n_description_ru; ?></textarea>
+                                                 <textarea name="description_ru" id="desc" cols="30" rows="10" class="form-control" placeholder="Enter description"><?php echo $single_news->n_description_ru; ?></textarea>
                                                  <br>
 
 

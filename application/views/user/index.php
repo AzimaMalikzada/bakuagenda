@@ -8,7 +8,7 @@
     <div class="container-fluid py-3">
         <div class="container">
             <div class="row">
-                <div class="col-lg-8">
+                <div class="col-lg-12">
                     <div class="owl-carousel owl-carousel-2 carousel-item-1 position-relative mb-3 mb-lg-0">
 
                     <?php foreach ($slider_left_side as $left_slider){ ?>
@@ -27,45 +27,7 @@
                         
                     </div>
                 </div>
-                <div class="col-lg-4">
-                    <div class="d-flex align-items-center justify-content-between bg-light py-2 px-4 mb-3">
-                        <h3 class="m-0"><?php echo $this->lang->line('category')?></h3>
-                    </div>
-
-                    <div class="position-relative overflow-hidden mb-3" style="height: 80px;">
-                        <img class="img-fluid w-100 h-100" src="<?php echo base_url('public/user/'); ?>img/cat-500x80-1.jpg" style="object-fit: cover;">
-                        <a href="<?php echo base_url('single/'.$idman['n_id']); ?>" class="overlay align-items-center justify-content-center h4 m-0 text-white text-decoration-none">
-                            <?php echo $idman['c_name_'.$this->session->userdata('site_lang')]; ?>
-                        </a>
-                    </div>
-
-                    <div class="position-relative overflow-hidden mb-3" style="height: 80px;">
-                        <img class="img-fluid w-100 h-100" src="<?php echo base_url('public/user/'); ?>img/cat-500x80-1.jpg" style="object-fit: cover;">
-                        <a href="<?php echo base_url('single/'.$medeniyyet['n_id']); ?>" class="overlay align-items-center justify-content-center h4 m-0 text-white text-decoration-none">
-                            <?php echo $medeniyyet['c_name_'.$this->session->userdata('site_lang')]; ?>
-                        </a>
-                    </div>
-
-                    
-                    <div class="position-relative overflow-hidden mb-3" style="height: 80px;">
-                        <img class="img-fluid w-100 h-100" src="<?php echo base_url('public/user/'); ?>img/cat-500x80-1.jpg" style="object-fit: cover;">
-                        <a href="<?php echo base_url('single/'.$biznes['n_id']); ?>" class="overlay align-items-center justify-content-center h4 m-0 text-white text-decoration-none">
-                            <?php echo $biznes['c_name_'.$this->session->userdata('site_lang')]; ?>
-                        </a>
-                    </div>
-
-                    <div class="position-relative overflow-hidden mb-3" style="height: 80px;">
-                        <img class="img-fluid w-100 h-100" src="<?php echo base_url('public/user/'); ?>img/cat-500x80-1.jpg" style="object-fit: cover;">
-                        <a href="<?php echo base_url('single/'.$texnologiya['n_id']); ?>" class="overlay align-items-center justify-content-center h4 m-0 text-white text-decoration-none">
-                            <?php echo $texnologiya['c_name_'.$this->session->userdata('site_lang')]; ?>
-                        </a>
-                    </div>
-
-                
-                            
-                        </a>
-                    </div>
-                </div>
+               
             </div>
         </div>
     </div>
@@ -168,27 +130,27 @@
                             <h3 class="m-0"><?php echo $this->lang->line('follow')?></h3>
                         </div>
                         <div class="d-flex mb-3">
-                            <a href="" class="d-block w-50 py-2 px-3 text-white text-decoration-none mr-2" style="background: #39569E;">
-                                <small class="fab fa-facebook-f mr-2"></small><small>12,345 Fans</small>
+                            <a href="https://www.facebook.com/profile.php?id=100087234054827" class="d-block w-50 py-2 px-3 text-white text-decoration-none mr-2" style="background: #39569E;">
+                                <small class="fab fa-facebook-f mr-2"></small><small>16,475 Fans</small>
                             </a>
-                            <a href="" class="d-block w-50 py-2 px-3 text-white text-decoration-none ml-2" style="background: #52AAF4;">
-                                <small class="fab fa-twitter mr-2"></small><small>12,345 Followers</small>
-                            </a>
-                        </div>
-                        <div class="d-flex mb-3">
-                            <a href="" class="d-block w-50 py-2 px-3 text-white text-decoration-none mr-2" style="background: #0185AE;">
-                                <small class="fab fa-linkedin-in mr-2"></small><small>12,345 Connects</small>
-                            </a>
-                            <a href="" class="d-block w-50 py-2 px-3 text-white text-decoration-none ml-2" style="background: #C8359D;">
-                                <small class="fab fa-instagram mr-2"></small><small>12,345 Followers</small>
+                            <a href="https://twitter.com/MalikzadaAzima" class="d-block w-50 py-2 px-3 text-white text-decoration-none ml-2" style="background: #52AAF4;">
+                                <small class="fab fa-twitter mr-2"></small><small>84,236 Followers</small>
                             </a>
                         </div>
                         <div class="d-flex mb-3">
-                            <a href="" class="d-block w-50 py-2 px-3 text-white text-decoration-none mr-2" style="background: #DC472E;">
-                                <small class="fab fa-youtube mr-2"></small><small>12,345 Subscribers</small>
+                            <a href="https://www.linkedin.com/in/ezime-melikzade-191247256/" class="d-block w-50 py-2 px-3 text-white text-decoration-none mr-2" style="background: #0185AE;">
+                                <small class="fab fa-linkedin-in mr-2"></small><small>24,812 Connects</small>
                             </a>
-                            <a href="" class="d-block w-50 py-2 px-3 text-white text-decoration-none ml-2" style="background: #1AB7EA;">
-                                <small class="fab fa-vimeo-v mr-2"></small><small>12,345 Followers</small>
+                            <a href="https://www.instagram.com/azima_malikzada/" class="d-block w-50 py-2 px-3 text-white text-decoration-none ml-2" style="background: #C8359D;">
+                                <small class="fab fa-instagram mr-2"></small><small>96,741 Followers</small>
+                            </a>
+                        </div>
+                        <div class="d-flex mb-3">
+                            <a href="https://www.youtube.com/@sethub3879" class="d-block w-50 py-2 px-3 text-white text-decoration-none mr-2" style="background: #DC472E;">
+                                <small class="fab fa-youtube mr-2"></small><small>32,954 Subscribers</small>
+                            </a>
+                            <a href="https://github.com/AzimaMalikzada" class="d-block w-50 py-2 px-3 text-white text-decoration-none ml-2" style="background: #24292F;">
+                                <small class="fab fa-github mr-2"></small><small>119,217 Followers</small>
                             </a>
                         </div>
                     </div>
@@ -203,7 +165,7 @@
                             <!-- <p>Aliqu justo et labore at eirmod justo sea erat diam dolor diam vero kasd</p> -->
                             <div class="input-group" style="width: 100%;">
                             <form action="<?php echo base_url('send_message'); ?>" method="post">
-                            <input name="email" type="text" class="form-control form-control-lg" placeholder="Your Email" style="width:210px;float:left">
+                            <input name="email" type="text" class="form-control form-control-lg" placeholder="<?php echo $this->lang->line('sey')?>" style="width:210px;float:left">
                                 <div class="input-group-append" style="float:left;height:48px">
                                     <button type="submit" class="btn btn-primary"><?php echo $this->lang->line('send')?></button>
                                 </div>

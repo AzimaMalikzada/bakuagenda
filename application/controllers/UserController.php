@@ -175,4 +175,28 @@ class UserController extends CI_Controller{
         }
     }
 
+    public function send(){
+        $email = $_POST['email'];
+        
+        if(!empty($email)){
+
+            $data = [
+                'u_e_mail' => $email,  
+            ];
+            
+        $data = $this->security->xss_clean($data);
+
+
+
+            $this->db->insert('user_email_list',$data);
+            $this->session->set_flashdata('Əla', "E-poçt göndərildi!");
+            redirect($_SERVER['HTTP_REFERER']);
+
+                            
+        }else{
+            $this->session->set_flashdata('err', "Boşluq buraxmayın!");
+            redirect($_SERVER['HTTP_REFERER']);
+        }
+    }
+
 }
