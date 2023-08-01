@@ -170,6 +170,7 @@
                                     <button type="submit" class="btn btn-primary"><?php echo $this->lang->line('send')?></button>
                                 </div>
                         </form>
+                        
 
                         <?php if($this->session->flashdata('err')){ ?>
                              <div class="alert alert-danger alert-dismissible">

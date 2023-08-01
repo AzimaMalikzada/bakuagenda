@@ -2,11 +2,18 @@
 
 $category = $this->db->get('category')->result_array();
 
-
+// echo $this->session->userdata('site_lang');
+// die();
 // print_r("<pre>");
 // print_r($category);
-
+// die();
 ?>
+
+<!-- <style>
+    .ddd{
+        background:red;
+    }
+</style> -->
 
 <div class="container-fluid">
         <div class="row align-items-center bg-light px-lg-5">
@@ -22,6 +29,15 @@ $category = $this->db->get('category')->result_array();
             <div class="col-lg-4">
                 <a href="<?php echo base_url('index'); ?>" class="navbar-brand d-none d-lg-block">
                     <h1 class="m-0 display-5 text-uppercase"><span class="text-primary">Baku</span>Agenda</h1>
+                    <?php 
+                    if(!$this->session->userdata('site_lang')){
+                        redirect('LanguageSwitcher/switchLang/az'); 
+                        
+                    }
+                    
+                        
+                    
+                        ?>
                 </a>
             </div>
             <div class="col-lg-8 text-center text-lg-right">
@@ -30,7 +46,22 @@ $category = $this->db->get('category')->result_array();
     </div>
     <!-- Topbar End -->
 
+    <style>
+        .language{
+            float: right;
+            height: 54px;
+            padding: 15px;
+            color: #6c757d;
+            font-weight: 400;
+            outline: none;
+        }
 
+        .language select{
+            color: #6c757d;
+            outline: none;
+            border: none;
+        }
+    </style>
     <!-- Navbar Start -->
     <div class="container-fluid p-0 mb-3">
         <nav class="navbar navbar-expand-lg bg-light navbar-light py-2 py-lg-0 px-lg-5">
@@ -42,10 +73,12 @@ $category = $this->db->get('category')->result_array();
             </button>
             <div class="collapse navbar-collapse justify-content-between px-0 px-lg-3" id="navbarCollapse">
                 <div class="navbar-nav mr-auto py-0">
-                    <a href="<?php echo base_url('index'); ?>" class="nav-item nav-link active"><?php echo $this->lang->line("home") ?></a>
-
+                <?php  $segment = $this->uri->segment(1); ?>
+                <?php  $segment2 = $this->uri->segment(2); ?>
+                    <a href="<?php echo base_url('index'); ?>" class="nav-item nav-link <?php if($segment == 'index' || $segment == ''){ echo 'active'; } ?>"><?php echo $this->lang->line("home"); ?></a>
+   
                     <?php foreach($category as $item){ ?>
-                    <a href="<?php echo base_url('category/'.$item['c_id']); ?>" class="nav-item nav-link"><?php echo $item['c_name_'.$this->session->userdata('site_lang')]; ?></a>
+                    <a href="<?php echo base_url('category/'.$item['c_id']); ?>" class="nav-item <?php if($segment.'/'.$segment2 == 'category/'.$item['c_id']){ echo 'active'; } ?> nav-link"><?php echo $item['c_name_'.$this->session->userdata('site_lang')]; ?></a>
                     <?php } ?>
 
                     <!-- <div class="nav-item dropdown">
@@ -56,22 +89,25 @@ $category = $this->db->get('category')->result_array();
                             <a href="#" class="dropdown-item">Menu item 3</a>
                         </div>
                     </div> -->
-                    <a href="<?php echo base_url('contact'); ?>" class="nav-item nav-link"><?php echo $this->lang->line('contact'); ?></a>
+                    <a href="<?php echo base_url('contact'); ?>" class="nav-item nav-link <?php if($segment == 'contact'){ echo 'active'; } ?>"><?php echo $this->lang->line('contact'); ?></a>
                 </div>
-
-                
-                
-                <div class="input-group ml-auto" style="width: 100%; max-width: 300px;"><select style="margin-right:15px;" onchange="javascript:window.location.href='<?php echo base_url(); ?>LanguageSwitcher/switchLang/'+this.value;">
-                        <option value="az" <?php if($this->session->userdata('site_lang') == 'az') echo 'selected="selected"'; ?>>AZ</option>
-                        <option value="en" <?php if($this->session->userdata('site_lang') == 'en') echo 'selected="selected"'; ?>>EN</option>
-                        <option value="ru" <?php if($this->session->userdata('site_lang') == 'ru') echo 'selected="selected"'; ?>>RU</option>   
-                    </select>
-                    <input type="text" class="form-control" placeholder="<?php echo $this->lang->line("search") ?>">
+                        <form action="" method="post">
+                            <div class="input-group language" style="float: right; height: 54px;" >
+                                <select onchange="javascript:window.location.href='<?php echo base_url(); ?>LanguageSwitcher/switchLang/'+this.value;">
+                                    <option value="az" <?php if($this->session->userdata('site_lang') == 'az') echo 'selected="selected"'; ?>>AZ</option>
+                                    <option value="en" <?php if($this->session->userdata('site_lang') == 'en') echo 'selected="selected"'; ?>>EN</option>
+                                <option value="ru" <?php if($this->session->userdata('site_lang') == 'ru') echo 'selected="selected"'; ?>>RU</option>   
+                                </select>
+                            </div>
+                        </form>
+                    
+                    <!-- <input type="text" class="form-control" placeholder="<?php echo $this->lang->line("search") ?>">
                     <div class="input-group-append">
                         <button class="input-group-text text-secondary"><i
                                 class="fa fa-search"></i></button>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </nav>
     </div>
+    

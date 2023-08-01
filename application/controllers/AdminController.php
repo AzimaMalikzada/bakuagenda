@@ -73,7 +73,7 @@ class AdminController extends CI_Controller{
     }
 
     public function news_list(){
-        $data['admin'] = $this->db->select('a_id, a_name, a_username, a_email, a_status, a_img')->where('a_id', $_SESSION['admin_id'])->get('admin')->row_array();
+        // $data['admin'] = $this->db->select('a_id, a_name, a_username, a_email, a_status, a_img')->where('a_id', $_SESSION['admin_id'])->get('admin')->row_array();
 
         $data["get_all"] = $this->db
             ->join('category','category.c_id = news.n_category' , 'left')
@@ -112,6 +112,7 @@ class AdminController extends CI_Controller{
 
         $date = $_POST['date'];
         $category= $_POST['category'];
+        // $page       = $_POST['page'];
         $status = $_POST['status'];
 
         if(!empty($title_az) && !empty($descr_az) && !empty($date) && !empty($category) && !empty($status )){ 
@@ -140,6 +141,7 @@ class AdminController extends CI_Controller{
 
                 'n_date'        => $date,
                 'n_category'    => $category,
+                // 'n_page'        => $page,
                 'n_status'      => $status,
                 'n_file'        => $upload_name,
                 'n_file_ext'    => $upload_ext,
@@ -166,6 +168,7 @@ class AdminController extends CI_Controller{
                 'n_description_ru' => $descr_ru,
                 'n_date'        => $date,
                 'n_category'    => $category,
+                // 'n_page'        => $page,
                 'n_status'      => $status,
                 'n_creator_id'  => $_SESSION['admin_id'],
                 'n_create_date' => date("Y-m-d H:i:s"),
@@ -306,7 +309,7 @@ class AdminController extends CI_Controller{
             }
 
         }else{
-            $this->session->set_flashdata('err', 'Bosluq buraxmayin!');
+            // $this->session->set_flashdata('err', 'Bosluq buraxmayin!');
             redirect($_SERVER['HTTP_REFERER']);
         }
 

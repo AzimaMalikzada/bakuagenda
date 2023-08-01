@@ -29,7 +29,7 @@ $lang['poct'] = 'E-poçtunuz';
 $lang['mess'] = 'Mesaj';
 $lang['sendd'] = 'Mesaj Göndər';
 $lang['sey'] = 'E-poçt';
-
+$lang['lang_s'] = 'az';
 
 
 

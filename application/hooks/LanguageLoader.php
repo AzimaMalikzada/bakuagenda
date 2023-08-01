@@ -8,7 +8,7 @@ class LanguageLoader
         if ($siteLang) {
             $ci->lang->load('message',$siteLang);
         } else {
-            $ci->lang->load('message','az');
+            $ci->lang->load('message','en');
         }
     }
 }

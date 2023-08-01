@@ -23,7 +23,7 @@
                                 <img src="<?php echo base_url('uploads/news/'.$item['n_file']); ?>" style="width: 250px; height: 100px; object-fit: cover;">
                                 <div class="w-100 d-flex flex-column justify-content-center bg-light px-3" style="height: 100px;">
                                        <div class="mb-1" style="font-size: 15px;">
-                                       <a href=""><?php echo $item['c_name_'.$this->session->userdata('site_lang')]; ?></a>
+                                       <a href="<?php echo base_url('category/'.$item['c_id']); ?>"><?php echo $item['c_name_'.$this->session->userdata('site_lang')]; ?></a>
                                              <span class="px-1">/</span>
                                                  <span><?php echo date("M d, Y",strtotime($item['n_date'])) ; ?></span>
                                 </div>
@@ -42,7 +42,7 @@
                         </div>
                        
                     </div>
-                    <div class="row">
+                    <!-- <div class="row">
                         <div class="col-12">
                             <nav aria-label="Page navigation">
                               <ul class="pagination justify-content-center">
@@ -64,7 +64,7 @@
                               </ul>
                             </nav>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
 
                 <div class="col-lg-4 pt-3 pt-lg-0">
@@ -95,7 +95,7 @@
                                 <img src="<?php echo base_url('uploads/news/'.$item['n_file']); ?>" style="width: 250px; height: 100px; object-fit: cover;">
                                 <div class="w-100 d-flex flex-column justify-content-center bg-light px-3" style="height: 100px;">
                                        <div class="mb-1" style="font-size: 15px;">
-                                       <a href=""><?php echo $item['c_name_'.$this->session->userdata('site_lang')]; ?></a>
+                                       <a href="<?php echo base_url('category/'.$item['c_id']); ?>"><?php echo $item['c_name_'.$this->session->userdata('site_lang')]; ?></a>
                                              <span class="px-1">/</span>
                                                  <span><?php echo date("M d, Y",strtotime($item['n_date'])) ; ?></span>
                                 </div>

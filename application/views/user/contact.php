@@ -39,38 +39,47 @@
                 <div class="col-md-7">
                     <div class="contact-form bg-light mb-3" style="padding: 30px;">
                         <div id="success"></div>
-                        <form name="sentMessage" id="contactForm" novalidate="novalidate">
+                        <form action="<?php echo base_url('contactAct'); ?>" method="post">
                             <div class="form-row">
                                 <div class="col-md-6">
                                     <div class="control-group">
-                                        <input type="text" class="form-control p-4" id="name" placeholder="<?php echo $this->lang->line('ad')?>" required="required" data-validation-required-message="Please enter your name" />
+                                        <input type="text" class="form-control p-4" name="name" id="name" placeholder="<?php echo $this->lang->line('ad')?>" required="required" data-validation-required-message="Please enter your name" />
                                         <p class="help-block text-danger"></p>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="control-group">
-                                        <input type="email" class="form-control p-4" id="email" placeholder="<?php echo $this->lang->line('poct')?>" required="required" data-validation-required-message="Please enter your email" />
+                                        <input type="email" class="form-control p-4" name="email" id="email" placeholder="<?php echo $this->lang->line('poct')?>" required="required" data-validation-required-message="Please enter your email" />
                                         <p class="help-block text-danger"></p>
                                     </div>
                                 </div>
                             </div>
                             <div class="control-group">
-                                <input type="text" class="form-control p-4" id="subject" placeholder="<?php echo $this->lang->line('soyad')?>" required="required" data-validation-required-message="Please enter a subject" />
+                                <input type="text" class="form-control p-4" name="subject" id="subject" placeholder="<?php echo $this->lang->line('soyad')?>" required="required" data-validation-required-message="Please enter a subject" />
                                 <p class="help-block text-danger"></p>
                             </div>
                             <div class="control-group">
-                                <textarea class="form-control" rows="4" id="message" placeholder="<?php echo $this->lang->line('mess')?>" required="required" data-validation-required-message="Please enter your message"></textarea>
+                                <textarea class="form-control" rows="4" name="message" id="message" placeholder="<?php echo $this->lang->line('mess')?>" required="required" data-validation-required-message="Please enter your message"></textarea>
                                 <p class="help-block text-danger"></p>
-                                <form action="<?php echo base_url('send'); ?>" method="post">
+                                <form action="<?php echo base_url('contactAct'); ?>" method="post">
                                 <div class="input-group-append" style="float:left;height:48px">
-                                    <button type="submit" class="btn btn-primary"><?php echo $this->lang->line('send')?></button>
+                                    <button type="submit" class="btn btn-primary">Gonder</button>
                                 </div>
                         </form>
+
+                        <?php if($this->session->flashdata('err')){ ?>
+                             <div class="alert alert-danger alert-dismissible">
+                             <small><?php echo $this->session->flashdata('err'); ?></small>
+                             </div>
+                         <?php } ?>
+
+                         <?php if($this->session->flashdata('Əla')){ ?>
+                             <div class="alert alert-success alert-dismissible">
+                             <small><?php echo $this->session->flashdata('Əla'); ?></small>
+                             </div>
+                         <?php } ?>
                             </div>
-                            <div>
-                                <button class="btn btn-primary font-weight-semi-bold px-4" style="height: 50px;" type="submit" id="sendMessageButton"><?php echo $this->lang->line('sendd')?></button>
-                            </div>
-                        </form>
+                            
                     </div>
                 </div>
             </div>

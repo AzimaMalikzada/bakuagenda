@@ -58,7 +58,7 @@
                                                      
                                                      <?php 
                                                      foreach ($category as $item) { ?>
-                                                    <option value="<?php echo $item['c_id']; ?>"><?php echo $item['c_name']; ?></option>
+                                                    <option value="<?php echo $item['c_id']; ?>"><?php echo $item['c_name_az']; ?></option>
                                                     <?php } ?>
                                                           
 

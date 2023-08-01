@@ -55,6 +55,8 @@ $route['category/(.*)'] = 'UserController/category/$1';
 $route['contact'] = 'UserController/contact';
 $route['single/(.*)'] = 'UserController/single/$1';
 $route['send_message'] = 'UserController/send_message';
+$route['contactAct'] = 'UserController/contactAct';
+
 
 
 

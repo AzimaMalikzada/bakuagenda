@@ -29,6 +29,7 @@ $lang['poct'] = 'Your Email';
 $lang['mess'] = 'Message';
 $lang['sendd'] = 'Send Message';
 $lang['sey'] = 'Email';
+$lang['lang_s'] = 'en';
 
 
 

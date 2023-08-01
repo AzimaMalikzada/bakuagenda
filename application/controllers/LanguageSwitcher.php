@@ -3,13 +3,12 @@ class LanguageSwitcher extends CI_Controller
 {
     public function __construct() {
         parent::__construct();   
-          
+        
     }
  
     function switchLang($language = "") {
         
-        $language = ($language != "") ? $language : "az";
-        $this->session->set_userdata('site_lang', $language);
+        $language = ($language != "") ? $language : "en";
        
         $folder_langs = [
             'az',
@@ -22,9 +21,8 @@ class LanguageSwitcher extends CI_Controller
         {
             $this->session->set_userdata('site_lang', $language);   
         }else{
-            $this->session->set_userdata('site_lang', 'az');
+            $this->session->set_userdata('site_lang', 'en');
         }
-
         redirect($_SERVER['HTTP_REFERER']);
         
         
